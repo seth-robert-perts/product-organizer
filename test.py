@@ -7,16 +7,20 @@ testId = 0
 def testPrint(json):
     global testId
     testId += 1
-    return f"Test {str(testId)}: {str(json)}\n"
+    return f"Test {str(testId)}: {json}\n"
 
 # Test post request
-response = requests.post(base + "products/1", json={"name": "Hand Sanitizer", "Ingredients": ["ethyl alcohol", "isopropyl alcohol", "water", "dimethyl siloxane", "copper gluconate"]})
-print(testPrint(response.json()))
+response = requests.post(base + "products/1",
+                        json={
+                            "name": "Hand Sanitizer",
+                            "ingredients": "ethyl alcohol, isopropyl alcohol, water, dimethyl siloxane, copper gluconate"
+                        })
+print(testPrint(str(response) + str(response.json())))
 
 # Test get request
 response = requests.get(base + "products/1")
-print(testPrint(response.json()))
+print(testPrint(str(response) + str(response.json())))
 
 # Test aborted request
 response = requests.get(base + "products/7777")
-print(testPrint(response.json()))
+print(testPrint(str(response) + str(response.json())))

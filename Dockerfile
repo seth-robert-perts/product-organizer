@@ -15,6 +15,7 @@ RUN yum install pip -y
 #RUN . ~/.nvm/nvm.sh
 #RUN nvm install --lts node
 #RUN npm install -g @vue/cli
+#RUN npm run serve
 
 # Install dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt

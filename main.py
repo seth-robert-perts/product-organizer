@@ -19,7 +19,7 @@ class ProductModel(db.Model):
 
 # Initialize database
 # NOTE: Only apply this once otherwise this will overwrite previous database file        
-db.create_all()
+#db.create_all()
 
 # Define serializable interface to make the database model that can be returned as json
 resource_fields = {

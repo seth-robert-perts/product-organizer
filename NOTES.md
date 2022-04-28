@@ -24,3 +24,11 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 ## SQL Alchemy
 https://docs.sqlalchemy.org/en/13/orm/tutorial.html
 
+## Docker build docs
+https://docs.docker.com/engine/reference/commandline/build/
+
+## Dockerfile reference
+https://docs.docker.com/engine/reference/builder/
+
+## How to dockerize rest app
+https://medium.com/bb-tutorials-and-thoughts/how-to-dockerize-the-python-rest-api-with-flask-library-d2b51dd4a0ae

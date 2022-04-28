@@ -1,0 +1,8 @@
+# Ignore database
+database.db
+
+# Ignore markdown files
+*.md
+
+# Ignore git files
+*.git*

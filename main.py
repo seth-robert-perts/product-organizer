@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, Resource, reqparse, abort
 
 # Create api using Flask framework
 app = Flask(__name__)
@@ -12,9 +12,15 @@ productPostArgs.add_argument("Ingredients", type=str, help="List of ingredients 
 
 products = {}
 
+# Abort if product id isn't found
+def abortIfProductIdNotFound(productId):
+    if productId not in products:
+        abort(404, message="Product not found!")
+
 # Create Product api to define REST api responses
 class Product(Resource):
     def get(self, productId):
+        abortIfProductIdNotFound(productId)
         return products[productId], 200
     
     def post(self, productId):

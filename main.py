@@ -1,9 +1,25 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse, abort
+from flask_sqlalchemy import SQLAlchemy
 
-# Create api using Flask framework
+# Create api using Flask framework with Alchemy database
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 api = Api(app)
+db = SQLAlchemy(app)
+
+# Create database model to define data
+class ProductModel(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(100), nullable=False)
+    ingredients = db.Column(db.String(1000), nullable=False)
+    
+    def __repr__(self):
+        return f"Product(id = {id}, name = {name}, ingredients = {ingredients})"
+
+# Initialize database
+# NOTE: Only apply this once otherwise this will overwrite previous file        
+db.create_all()
 
 # Define arguments for post request and utilize request parser to enforce from frontend
 productPostArgs = reqparse.RequestParser()

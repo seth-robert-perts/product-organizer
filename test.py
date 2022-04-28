@@ -7,7 +7,7 @@ testId = 0
 def testPrint(json):
     global testId
     testId += 1
-    return "Test " + str(testId) + ": " + str(json) + '\n'
+    return f"Test {str(testId)}: {str(json)}\n"
 
 # Test post request
 response = requests.post(base + "products/1", json={"name": "Hand Sanitizer", "Ingredients": ["ethyl alcohol", "isopropyl alcohol", "water", "dimethyl siloxane", "copper gluconate"]})

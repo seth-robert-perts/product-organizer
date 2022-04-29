@@ -27,12 +27,9 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
     && source ~/.nvm/nvm.sh \
     && echo $PATH \
     && nvm install --lts node \
-    && npm install -g @vue/cli bootstrap vue-router serve
-    
-RUN npm install
-
-# Build VueJS Frontend
-RUN npm run build
+    && npm install -g @vue/cli bootstrap vue-router serve \
+    && npm install \
+    && npm run build
 
 # Expose port for communication to outside of container
 EXPOSE 3000/tcp

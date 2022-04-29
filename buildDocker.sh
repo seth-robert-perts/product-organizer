@@ -1,14 +1,8 @@
 #!/bin/bash
 
+# Remove old containers and images (this was more for my sanity during testing)
 docker rm -f server
 docker rmi -f product-organizer
 
- docker build -t product-organizer https://github.com/seth-robert-perts/product-organizer.git#main
-#docker build -t product-organizer .
-
-docker run --name server --network=host -p 3000:3000 --mount type=bind,src=/home/ec2-user/product-organizer/database.db,dst=/opt/app/database.db product-organizer
-
-#docker rmi product-organizer
-
-docker ps -a
-docker images   
+# Build from GitHub repo containing all files
+docker build -t product-organizer https://github.com/seth-robert-perts/product-organizer.git#main

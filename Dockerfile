@@ -29,7 +29,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | b
     && . /usr/local/nvm/nvm.sh \
     && nvm install 16.15.0 \
     && nvm alias default 16.15.0 \
-    && nvm use default 
+    && nvm use default; echo "${PIPESTATUS[@]}"
 
 RUN echo \$PATH
     

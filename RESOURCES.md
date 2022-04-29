@@ -32,3 +32,21 @@ https://docs.docker.com/engine/reference/builder/
 
 ## How to dockerize rest app
 https://medium.com/bb-tutorials-and-thoughts/how-to-dockerize-the-python-rest-api-with-flask-library-d2b51dd4a0ae
+
+## Best Front End Frameworks
+https://www.monocubed.com/blog/best-front-end-frameworks/
+
+## VueJS Example
+https://www.youtube.com/watch?v=nCMB5p74WJQ
+
+## VueJS Quick Start
+https://vuejs.org/guide/quick-start.html
+
+## Installing Node on Amazon Linux EC2
+https://stackoverflow.com/questions/67884868/installing-npm-on-amazon-linux-ami
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+
+## Installing a GUI on AWS EC2 instance running Amazon Linux
+https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
+
+

@@ -29,8 +29,10 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | b
     && . /usr/local/nvm/nvm.sh \
     && nvm install 16.15.0 \
     && nvm alias default 16.15.0 \
-    && nvm use default; echo ${PIPESTATUS[@]} 
+    && nvm use default 
 
+RUN echo \$PATH
+    
 ENV NODE_PATH /usr/local/nvm/v16.15.0/lib/node_modules
 ENV PATH      /usr/local/nvm/v16.15.0/bin:$PATH
 

@@ -34,18 +34,19 @@ productPostArgs.add_argument("name",        type=str, help="Name of product is r
 productPostArgs.add_argument("ingredients", type=str, help="String of ingredients is required", required=True)
 
 # Create Product api to define REST api responses
-class Product(Resource):
+class GetProducts(Resource):
     @marshal_with(resource_fields)
     def get(self):
-        product = ProductModel.query.all()
+        products = ProductModel.query.all()
         
         # If the database could not find a product
-        if not product:
+        if not products:
             abort(404, message="Products could not be found")
             
         # Return result on success
-        return product, 200
-    
+        return products, 200
+
+class Product(Resource):        
     @marshal_with(resource_fields)
     def post(self, productId):
         args = productPostArgs.parse_args()
@@ -79,7 +80,7 @@ class Product(Resource):
             return newProduct, 201
 
 # Add the product resource and capture an id for further use
-api.add_resource(Product, "/get")
+api.add_resource(GetProducts, "/get")
 api.add_resource(Product, "/products/<int:productId>")
 
 # Run the app in debug to enable auto restart

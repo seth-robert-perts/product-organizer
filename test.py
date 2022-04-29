@@ -9,6 +9,10 @@ def testPrint(json):
     testId += 1
     return f"Test {str(testId)}: {json}\n"
 
+# Test get request
+response = requests.get(base + "get")
+print(testPrint(str(response) + str(response.json())))
+
 # Test post request
 response = requests.post(base + "products/1",
                         json={
@@ -17,10 +21,18 @@ response = requests.post(base + "products/1",
                         })
 print(testPrint(str(response) + str(response.json())))
 
-# Test get request
-response = requests.get(base + "products/1")
+# Test post request
+response = requests.post(base + "products/2",
+                        json={
+                            "name": "Banana Bread",
+                            "ingredients": "bread, banana"
+                        })
 print(testPrint(str(response) + str(response.json())))
 
-# Test aborted request
-response = requests.get(base + "products/7777")
-print(testPrint(str(response) + str(response.json())))
+# Test post request
+# response = requests.post(base + "products/3",
+                       # json={
+                           # "name": "Pizza",
+                           # "ingredients": "flour, water, tomato, cheese, oregano"
+                       # })
+# print(testPrint(str(response) + str(response.json())))

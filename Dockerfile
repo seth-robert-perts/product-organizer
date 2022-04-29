@@ -21,10 +21,7 @@ WORKDIR /opt/app/frontend
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
-# Set debconf to run non-interactively
-RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-
+            
 # Install nvm with node and npm
 ENV NVM_DIR ~/.nvm
 ENV NODE_VERSION 16.15.0

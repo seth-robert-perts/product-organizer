@@ -10,14 +10,13 @@ COPY main.py .
 COPY frontend .
 
 # Install needed packages
-RUN yum install -y python3
-RUN yum install pip -y
+RUN yum install -y python3 pip shadow-utils
 
 # Install python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Create user for nvm script to work
-RUN sudo useradd -ms /bin/bash myapp
+RUN useradd -ms /bin/bash myapp
 USER myapp
 
 # Change directories for node install

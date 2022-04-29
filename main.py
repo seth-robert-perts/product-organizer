@@ -12,12 +12,11 @@ db = SQLAlchemy(app)
 
 # Create database model to define data
 class ProductModel(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), primary_key=True)
     ingredients = db.Column(db.String(1000), nullable=False)
     
     def __repr__(self):
-        return f"Product(id = {id}, name = {name}, ingredients = {ingredients})"
+        return f"Product(name = {name}, ingredients = {ingredients})"
 
 # Initialize database
 # NOTE: Only apply this once otherwise this will overwrite previous database file        
@@ -25,14 +24,13 @@ class ProductModel(db.Model):
 
 # Define serializable interface to make the database model that can be returned as json
 resource_fields = {
-    'id': fields.Integer,
     'name': fields.String,
     'ingredients': fields.String
 }
 
 # Define arguments for post request and utilize request parser to enforce from frontend
 productPostArgs = reqparse.RequestParser()
-productPostArgs.add_argument("name",        type=str, help="Name of product is required",     required=True)
+productPostArgs.add_argument("name",        type=str, help="Name of product is required",       required=True)
 productPostArgs.add_argument("ingredients", type=str, help="String of ingredients is required", required=True)
 
 # Create Product api to define REST api responses
@@ -50,11 +48,11 @@ class GetProducts(Resource):
 
 class Product(Resource):        
     @marshal_with(resource_fields)
-    def post(self, productId):
+    def post(self):
         args = productPostArgs.parse_args()
         
         # Check if prouct already exists in database
-        existingProduct = ProductModel.query.filter_by(id=productId).first()
+        existingProduct = ProductModel.query.filter_by(name=args['name']).first()
         
         # If the product is found then update
         if existingProduct:
@@ -72,7 +70,7 @@ class Product(Resource):
         # Otherwise, create new product
         else:
             # Create a product based on POST request
-            newProduct = ProductModel(id=productId, name=args['name'], ingredients=args['ingredients'])
+            newProduct = ProductModel(name=args['name'], ingredients=args['ingredients'])
             
             # Create product in database and save
             db.session.add(newProduct)
@@ -81,9 +79,9 @@ class Product(Resource):
             # Return the created product with a "created" status code
             return newProduct, 201
 
-# Add the product resource and capture an id for further use
+# Add the product endpoints
 api.add_resource(GetProducts, "/get")
-api.add_resource(Product, "/products/<int:productId>")
+api.add_resource(Product, "/post")
 
 # Run the app in debug to enable auto restart
 if __name__ == "__main__":

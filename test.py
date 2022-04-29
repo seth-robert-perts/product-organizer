@@ -14,7 +14,7 @@ response = requests.get(base + "get")
 print(testPrint(str(response) + str(response.json())))
 
 # Test post request
-response = requests.post(base + "products/1",
+response = requests.post(base + "post",
                         json={
                             "name": "Hand Sanitizer",
                             "ingredients": "ethyl alcohol, isopropyl alcohol, water, dimethyl siloxane, copper gluconate"
@@ -22,7 +22,7 @@ response = requests.post(base + "products/1",
 print(testPrint(str(response) + str(response.json())))
 
 # Test post request
-response = requests.post(base + "products/2",
+response = requests.post(base + "post",
                         json={
                             "name": "Banana Bread",
                             "ingredients": "bread, banana"
@@ -30,7 +30,7 @@ response = requests.post(base + "products/2",
 print(testPrint(str(response) + str(response.json())))
 
 # Test post request
-# response = requests.post(base + "products/3",
+# response = requests.post(base + "post",
                        # json={
                            # "name": "Pizza",
                            # "ingredients": "flour, water, tomato, cheese, oregano"

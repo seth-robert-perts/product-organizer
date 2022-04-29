@@ -34,4 +34,4 @@ EXPOSE 3000/tcp
 WORKDIR /opt/app
 
 # Start backend python/flask server and frontend VueJS server
-CMD python3 main.py & && serve ./frontend/dist &
+CMD { python3 main.py; serve ./frontend/dist; } &

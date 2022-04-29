@@ -17,7 +17,7 @@ RUN yum install pip -y
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Create user for nvm script to work
-RUN useradd -ms /bin/bash myapp
+RUN sudo useradd -ms /bin/bash myapp
 USER myapp
 
 # Change directories for node install

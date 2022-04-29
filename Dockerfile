@@ -19,13 +19,19 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Change directories for node install
 WORKDIR /opt/app/frontend
 
-# Hack to install nvm
-SHELL [ "/bin/bash", "-l", "-c" ]
+# Install nvm with node and npm
+ENV NVM_DIR ~/.nvm
+ENV NODE_VERSION 16.15.0
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
 
-# Install nvm, node, and frontend dependencies
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-RUN source ~/.nvm/nvm.sh
-RUN nvm install --lts node
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+
+# Install frontend dependencies
 RUN npm install -g @vue/cli bootstrap vue-router serve
 RUN npm install
 

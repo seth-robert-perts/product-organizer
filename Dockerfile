@@ -23,7 +23,7 @@ WORKDIR /opt/app/frontend
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
             
 # Install nvm with node and npm
-ENV NVM_DIR ~/.nvm
+ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 16.15.0
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash \
     && . $NVM_DIR/nvm.sh \

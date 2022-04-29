@@ -24,6 +24,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 ## SQL Alchemy
 https://docs.sqlalchemy.org/en/13/orm/tutorial.html
 
+## Installing docker on amazon EC2 running amazon linux 2
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-container-image.html#create-container-image-install-docker
+
 ## Docker build docs
 https://docs.docker.com/engine/reference/commandline/build/
 

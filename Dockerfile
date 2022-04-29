@@ -11,7 +11,7 @@ COPY main.py .
 # Install needed packages
 RUN yum install -y python3
 RUN yum install pip -y
-#RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+#RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 #RUN . ~/.nvm/nvm.sh
 #RUN nvm install --lts node
 #RUN npm install -g @vue/cli

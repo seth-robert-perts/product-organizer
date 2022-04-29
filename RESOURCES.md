@@ -49,4 +49,5 @@ https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-nod
 ## Installing a GUI on AWS EC2 instance running Amazon Linux
 https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
 
-
+## ESLint Docs
+https://eslint.org/docs/user-guide/configuring/configuration-file

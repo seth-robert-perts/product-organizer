@@ -15,7 +15,11 @@ RUN yum install pip -y
 #RUN . ~/.nvm/nvm.sh
 #RUN nvm install --lts node
 #RUN npm install -g @vue/cli
+#RUN npm install bootstrap vue-router
 #RUN npm run serve
+# For prod build
+#RUN npm run build
+#RUN serve ./dist
 
 # Install dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt

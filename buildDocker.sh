@@ -1,7 +1,7 @@
 #!/bin/bash
 
-docker rm -f server
-docker rmi -f product-organizer
+#docker rm -f server
+#docker rmi -f product-organizer
 
  docker build -t product-organizer https://github.com/seth-robert-perts/product-organizer.git#main
 #docker build -t product-organizer .

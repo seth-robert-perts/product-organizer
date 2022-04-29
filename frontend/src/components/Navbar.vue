@@ -1,3 +1,4 @@
+<!-- Create navigation bar with buttons for Home and Create/Update -->
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">

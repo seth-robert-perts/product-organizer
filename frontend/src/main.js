@@ -3,6 +3,7 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import router from './routers';
 
+// Create app using the defined routes
 const app = createApp(App)
 app.use(router)
 app.mount('#app')

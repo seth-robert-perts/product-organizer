@@ -1,3 +1,4 @@
+<!-- Create Home page with list of all products -->
 <template>
   <div class="container mt-5">
     <div v-for="product in products" :key="product.id">
@@ -7,8 +8,8 @@
   </div>
 </template>
 
+<!-- Call to backend server to get all products in database and populate Home page -->
 <script>
-
 export default {
 
   data() {

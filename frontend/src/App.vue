@@ -1,3 +1,4 @@
+<!-- Add the Navbar and route view to main app -->
 <template>
   <div id="app">
     <Navbar/>

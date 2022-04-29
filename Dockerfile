@@ -8,12 +8,13 @@ WORKDIR /opt/app
 COPY requirements.txt .
 COPY main.py .
 COPY frontend .
+COPY runner.sh .
 
 # Install needed packages
 RUN yum install -y python3 pip shadow-utils supervisor
 
 # Copy supervisor config file
-COPY supervisord.conf /etc/supervisord.conf
+#COPY supervisord.conf /etc/supervisord.conf
 
 # Install python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
@@ -35,5 +36,5 @@ EXPOSE 3000/tcp
 # Change back to original directory
 WORKDIR /opt/app
 
-# Start backend python/flask server and frontend VueJS server using supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+# Start backend python/flask server and frontend VueJS server using runner script
+CMD ["./runner.sh"]

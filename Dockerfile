@@ -23,8 +23,7 @@ USER myapp
 WORKDIR /opt/app/frontend
 
 # Install nvm, node, and frontend dependencies
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-RUN source ~/.nvm/nvm.sh && echo $PATH
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && source ~/.nvm/nvm.sh && echo $PATH
 RUN nvm install --lts node
 RUN npm install -g @vue/cli bootstrap vue-router serve
 RUN npm install

@@ -1,5 +1,6 @@
 # Requirements with no versions required
 requests
+Flask-Cors
 
 # Requiremend with version specifiers
 aniso8601==8.0.0

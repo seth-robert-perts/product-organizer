@@ -25,7 +25,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Install nvm with node and npm
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 16.15.0
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash \
+RUN set -o pipefail && curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash \
     && . /usr/local/nvm/nvm.sh \
     && nvm install 16.15.0 \
     && nvm alias default 16.15.0 \

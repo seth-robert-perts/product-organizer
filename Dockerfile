@@ -10,7 +10,7 @@ COPY main.py .
 COPY frontend .
 
 # Install needed packages
-RUN yum install -y python3 pip shadow-utils
+RUN yum install -y python3 pip shadow-utils tar
 
 # Install python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt

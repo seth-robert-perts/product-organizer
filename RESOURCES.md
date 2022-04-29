@@ -51,3 +51,6 @@ https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
 
 ## ESLint Docs
 https://eslint.org/docs/user-guide/configuring/configuration-file
+
+## VueJS Deployment Info
+https://cli.vuejs.org/guide/deployment.html

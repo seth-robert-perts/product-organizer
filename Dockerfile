@@ -20,7 +20,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 WORKDIR /opt/app/frontend
 
 # Hack to install nvm
-SHELL ["/bin/bash", "--login", "-c"]
+SHELL [ "/bin/bash", "-l", "-c" ]
 
 # Install nvm, node, and frontend dependencies
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

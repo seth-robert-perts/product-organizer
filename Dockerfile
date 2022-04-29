@@ -26,13 +26,13 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 16.15.0
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
+    && . /usr/local/nvm/nvm.sh \
+    && nvm install 16.15.0 \
+    && nvm alias default 16.15.0 \
     && nvm use default
 
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+ENV NODE_PATH /usr/local/nvm/v16.15.0/lib/node_modules
+ENV PATH      /usr/local/nvm/v16.15.0/bin:$PATH
 
 # Install frontend dependencies
 RUN npm install -g @vue/cli bootstrap vue-router serve

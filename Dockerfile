@@ -23,18 +23,18 @@ WORKDIR /opt/app/frontend
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
             
 # Install nvm with node and npm
-ENV NVM_DIR /usr/local/nvm
+ENV NVM_DIR ~/.nvm
 ENV NODE_VERSION 16.15.0
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash \
-    && . /usr/local/nvm/nvm.sh \
+    && . ~/.nvm/nvm.sh \
     && nvm install 16.15.0 \
     && nvm alias default 16.15.0 \
     && nvm use default; echo "${PIPESTATUS[@]}"
 
 RUN echo \$PATH
     
-ENV NODE_PATH /usr/local/nvm/v16.15.0/lib/node_modules
-ENV PATH      /usr/local/nvm/v16.15.0/bin:$PATH
+ENV NODE_PATH ~/.nvm/v16.15.0/lib/node_modules
+ENV PATH      ~/.nvm/v16.15.0/bin:$PATH
 
 # Install frontend dependencies
 RUN npm install -g @vue/cli bootstrap vue-router serve

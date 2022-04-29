@@ -31,7 +31,7 @@ WORKDIR /opt/app/frontend
 #    && npm install \
 #    && npm run build
 
-RUN curl --silent --location https://rpm.nodesource.com/setup_14.x | bash && yum -y install nodejs
+RUN curl --silent --location https://rpm.nodesource.com/setup_16.x | bash && yum -y install nodejs
 
 RUN npm install -g @vue/cli bootstrap vue-router serve
 

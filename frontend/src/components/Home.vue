@@ -1,11 +1,21 @@
 <template>
-  <h1>This is our home</h1>
+  <div class="container mt-5">
+    <div v-for="product in products" :key="product.id">
+      <h3>{{product.name}}</h3>
+      <p>{{product.ingredients}}</p>
+    </div>
+  </div>
 </template>
 
 <script>
 
 export default {
 
+  data() {
+    return {
+      products:[]
+    }
+  },
   methods: {
     getProducts() {
       fetch('http://localhost:5000/get', {
@@ -16,7 +26,7 @@ export default {
       })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
+        this.products.push(...data)
       })
       .catch(error => {
         console.log(error)

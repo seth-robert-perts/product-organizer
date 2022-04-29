@@ -7,25 +7,33 @@ WORKDIR /opt/app
 # Copy in needed files
 COPY requirements.txt .
 COPY main.py .
+COPY frontend .
 
 # Install needed packages
 RUN yum install -y python3
 RUN yum install pip -y
-#RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-#RUN . ~/.nvm/nvm.sh
-#RUN nvm install --lts node
-#RUN npm install -g @vue/cli bootstrap vue-router serve
-#RUN npm install
-#RUN npm run serve
-# For prod build
-#RUN npm run build
-#RUN serve ./dist
 
-# Install dependencies
+# Install python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Expose port for communication to outside container
-EXPOSE 5000/tcp
+# Change directories for node install
+WORKDIR /opt/app/frontend
 
-# Start server
-CMD ["python3", "main.py"]
+# Install nvm, node, and frontend dependencies
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+RUN source ~/.nvm/nvm.sh
+RUN nvm install --lts node
+RUN npm install -g @vue/cli bootstrap vue-router serve
+RUN npm install
+
+# Build VueJS Frontend
+RUN npm run build
+
+# Expose port for communication to outside of container
+EXPOSE 3000/tcp
+
+# Change back to original directory
+WORKDIR /opt/app
+
+# Start backend python/flask server and frontend VueJS server
+CMD python3 main.py && serve ./frontend/dist

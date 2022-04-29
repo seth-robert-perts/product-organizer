@@ -16,20 +16,28 @@ RUN yum install -y python3 pip shadow-utils tar gzip ncurses
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Create user for nvm script to work
-RUN useradd -ms /bin/bash myapp
-USER myapp
+#RUN useradd -ms /bin/bash myapp
+#USER myapp
 
 # Change directories for node install
 WORKDIR /opt/app/frontend
 
 # Install nvm, node, and frontend dependencies
-RUN sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
-    && source ~/.nvm/nvm.sh \
-    && echo $PATH \
-    && nvm install --lts node \
-    && npm install -g @vue/cli bootstrap vue-router serve \
-    && npm install \
-    && npm run build
+#RUN sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
+#    && source ~/.nvm/nvm.sh \
+#    && echo $PATH \
+#    && nvm install --lts node \
+#    && npm install -g @vue/cli bootstrap vue-router serve \
+#    && npm install \
+#    && npm run build
+
+RUN curl --silent --location https://rpm.nodesource.com/setup_14.x | bash && yum -y install nodejs
+
+RUN npm install -g @vue/cli bootstrap vue-router serve
+
+RUN npm install
+
+RUN npm run build
 
 # Expose port for communication to outside of container
 EXPOSE 3000/tcp

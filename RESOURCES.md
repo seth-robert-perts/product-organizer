@@ -36,6 +36,9 @@ https://docs.docker.com/engine/reference/builder/
 ## How to dockerize rest app
 https://medium.com/bb-tutorials-and-thoughts/how-to-dockerize-the-python-rest-api-with-flask-library-d2b51dd4a0ae
 
+## How to run multiple servers in one container
+https://docs.docker.com/config/containers/multi-service_container/
+
 ## Best Front End Frameworks
 https://www.monocubed.com/blog/best-front-end-frameworks/
 

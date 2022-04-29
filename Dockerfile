@@ -14,8 +14,7 @@ RUN yum install pip -y
 #RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 #RUN . ~/.nvm/nvm.sh
 #RUN nvm install --lts node
-#RUN npm install -g @vue/cli
-#RUN npm install bootstrap vue-router
+#RUN npm install -g @vue/cli bootstrap vue-router serve
 #RUN npm install
 #RUN npm run serve
 # For prod build

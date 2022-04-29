@@ -9,7 +9,7 @@
           <router-link class="btn btn-primary" aria-current="page" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="btn btn-success" to="/create">Create</router-link>
+          <router-link class="btn btn-success" to="/create-update">Create/Update</router-link>
         </li>
       </ul>
     </div>

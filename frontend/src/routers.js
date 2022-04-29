@@ -1,7 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Home from './components/Home'
-import Create from './components/Create'
-
+import CreateUpdate from './components/CreateUpdate'
 
 const routes = [
     {
@@ -10,9 +9,9 @@ const routes = [
         component:Home
     },
     {
-        path:'/create',
-        name:'create',
-        component:Create
+        path:'/create_update',
+        name:'create_update',
+        component:CreateUpdate
     }
 ]
 

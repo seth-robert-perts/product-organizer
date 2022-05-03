@@ -7,7 +7,7 @@ Created a web application that allows for different products (and their ingredie
 ### Create database for first time (required for persistent storage)
 1. Clone down this repository
 2. Open the file  `main.py`
-3. Uncomment line 23, `#db.create_all()1
+3. Uncomment line 23, `#db.create_all()`
 4. Save the file
 5. Run `python3 main.py`
 6. Now a file called `database.db` appears in the directory
